@@ -1,14 +1,29 @@
 import './navbar.css'
 
 function NavLeftBar(){
+    const navBarOptions = [
+        { 
+            active : true,
+            value : "Report",
+            redirectEndpoint : "Report"
+        },
+        { 
+            active : false,
+            value : "Tasks",
+            redirectEndpoint : "Tasks"
+        }
+    ];
     return <div className="navbar">            
         <ul>
-            <li><a className="active" href="#home">Home</a></li>
-            <li><a href="#news">News</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#about">About</a></li>
+            { navBarOptions.map(option => {
+               return  renderNavBarOption(option)
+            })}
         </ul>
     </div>;
+}
+
+function renderNavBarOption(option){
+    return  <li><a className={`${option.active ? "active" : ""}`} href={`#${option.redirectEndpoint}`}>{option.value}</a></li>;
 }
 
 export default NavLeftBar;
