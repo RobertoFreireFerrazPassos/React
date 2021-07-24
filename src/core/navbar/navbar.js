@@ -1,3 +1,5 @@
+import Dropdown from './dropdown/dropdown';
+
 import './navbar.css'
 
 function NavLeftBar(){
@@ -10,7 +12,24 @@ function NavLeftBar(){
         { 
             active : false,
             value : "Tasks",
-            redirectEndpoint : "Tasks"
+            redirectEndpoint : "Tasks",
+            dropdownOptions: [
+                {
+                    active : false,
+                     value : "Task",
+                    redirectEndpoint : "Task"
+                },
+                {
+                    active : false,
+                     value : "Calender",
+                    redirectEndpoint : "Calender"
+                }
+            ]
+        },        
+        { 
+            active : false,
+            value : "Configuration",
+            redirectEndpoint : "Configuration"
         }
     ];
     return <div className="navbar">            
@@ -23,7 +42,22 @@ function NavLeftBar(){
 }
 
 function renderNavBarOption(option){
-    return  <li><a className={`${option.active ? "active" : ""}`} href={`#${option.redirectEndpoint}`}>{option.value}</a></li>;
+    if (option.dropdownOptions && option.dropdownOptions.length > 0){
+        return (
+            <div>
+                <button className={setActiveAndAditionalClasses(option, "dropdown-btn")}> 
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <Dropdown></Dropdown>
+            </div>
+            );
+    }
+    return  <li><a className={setActiveAndAditionalClasses(option)} href={`#${option.redirectEndpoint}`}>{option.value}</a></li>;
+}
+
+function setActiveAndAditionalClasses(option, aditionalClasses){
+    if (aditionalClasses) return `${aditionalClasses} ${option.active ? "active" : ""}`;
+    return `${option.active ? "active" : ""}`;
 }
 
 export default NavLeftBar;
