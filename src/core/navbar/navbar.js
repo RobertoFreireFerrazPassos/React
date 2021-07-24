@@ -32,6 +32,7 @@ function NavLeftBar(){
             redirectEndpoint : "Configuration"
         }
     ];
+
     return <div className="navbar">            
         <ul>
             { navBarOptions.map(option => {
@@ -46,12 +47,22 @@ function renderNavBarOption(option){
         return (
             <div>
                 <button className={setActiveAndAditionalClasses(option, "dropdown-btn")}> 
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <Dropdown></Dropdown>
+                    { option.value }
+                    <i className="fa fa-caret-down"></i>
+                </button>                
+                <div className="dropdown-container">
+                    <li>  
+                        { 
+                            option.dropdownOptions.map(dropdownItem => {
+                                return <Dropdown dropdownOption = {dropdownItem}></Dropdown>
+                            })
+                        }
+                    </li>
+                </div>
             </div>
             );
     }
+    
     return  <li><a className={setActiveAndAditionalClasses(option)} href={`#${option.redirectEndpoint}`}>{option.value}</a></li>;
 }
 

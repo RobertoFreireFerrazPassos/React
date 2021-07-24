@@ -1,3 +1,21 @@
+.navbar li a, .dropdown-btn {  
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  color: #000;  
+}
+
+.navbar .fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
 .navbar ul {
   list-style-type: none;
   margin: 0;
@@ -9,13 +27,6 @@
   overflow: auto;
 }
 
-.navbar li a {
-  display: block;
-  color: #000;
-  padding: 8px 16px;
-  text-decoration: none;
-}
-
 .navbar li a.active {
   background-color: #07462f;
   color: white;
@@ -25,3 +36,10 @@
   background-color: rgb(90, 162, 96);
   color: white;
 }
+
+/* 
+.dropdown-container {
+    display: none;
+    background-color: #262626;
+    padding-left: 8px;
+  } */
