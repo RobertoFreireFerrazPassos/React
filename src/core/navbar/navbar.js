@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Dropdown from './dropdown/dropdown';
 
 import './navbar.css'
@@ -32,38 +33,41 @@ function NavLeftBar(){
             redirectEndpoint : "Configuration"
         }
     ];
+    
+    function toggleDropDown(){
+        setActive(!isActive);
+    } 
+
+    const [isActive, setActive ] = useState(false);
 
     return <div className="navbar">            
         <ul>
             { navBarOptions.map(option => {
-               return  renderNavBarOption(option)
-            })}
+                if (option.dropdownOptions && option.dropdownOptions.length > 0){
+                    return (
+                        <div>
+                            <button onClick={toggleDropDown} className={setActiveAndAditionalClasses(option, "dropdown-btn")}> 
+                                { option.value }
+                                <i className="fa fa-caret-down"></i>
+                            </button>                
+                            <div className="dropdown-container" style={isActive ? {display : "block"} : {display : "none"}}>
+                                <li>  
+                                    { 
+                                        option.dropdownOptions.map(dropdownItem => {
+                                            return <Dropdown dropdownOption = {dropdownItem}></Dropdown>
+                                        })
+                                    }
+                                </li>
+                            </div>
+                        </div>
+                    );
+                }
+                
+                return  <li><a className={setActiveAndAditionalClasses(option)} href={`#${option.redirectEndpoint}`}>{option.value}</a></li>;
+               })
+            }            
         </ul>
     </div>;
-}
-
-function renderNavBarOption(option){
-    if (option.dropdownOptions && option.dropdownOptions.length > 0){
-        return (
-            <div>
-                <button className={setActiveAndAditionalClasses(option, "dropdown-btn")}> 
-                    { option.value }
-                    <i className="fa fa-caret-down"></i>
-                </button>                
-                <div className="dropdown-container">
-                    <li>  
-                        { 
-                            option.dropdownOptions.map(dropdownItem => {
-                                return <Dropdown dropdownOption = {dropdownItem}></Dropdown>
-                            })
-                        }
-                    </li>
-                </div>
-            </div>
-            );
-    }
-    
-    return  <li><a className={setActiveAndAditionalClasses(option)} href={`#${option.redirectEndpoint}`}>{option.value}</a></li>;
 }
 
 function setActiveAndAditionalClasses(option, aditionalClasses){
