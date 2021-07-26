@@ -41,9 +41,9 @@ function NavLeftBar(){
         <ul>
             { options.map(option => {
                 if (option.dropdownOptions && option.dropdownOptions.length > 0){
-                    return <DropdownOption option={option}></DropdownOption>
+                    return <DropdownOption key={option.value} option={option}></DropdownOption>
                 }
-                    return  <Option active={option.active} option={option}></Option>;
+                    return  <Option key={option.value} active={option.active} option={option}></Option>;
                })
             }            
         </ul>
