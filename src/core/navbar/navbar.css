@@ -1,4 +1,4 @@
-.navbar li a, .dropdown-btn {  
+.navbar a, .dropdown-btn {  
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   display: block;
@@ -27,12 +27,12 @@
   overflow: auto;
 }
 
-.navbar li a.active {
+.navbar a.active {
   background-color: #07462f;
   color: white;
 }
 
-.navbar li a:hover:not(.active) {
+.navbar a:hover:not(.active) {
   background-color: rgb(90, 162, 96);
   color: white;
 }

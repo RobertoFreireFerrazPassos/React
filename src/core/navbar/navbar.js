@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import Dropdown from './dropdown/dropdown';
+import Classes from '../../shared/utils/classes';
+import Option from './option/option';
+import DropdownOption from './dropdownOption/dropdownOption';
 
 import './navbar.css'
 
@@ -34,45 +36,19 @@ function NavLeftBar(){
         }
     ];
     
-    function toggleDropDown(){
-        setActive(!isActive);
-    } 
-
-    const [isActive, setActive ] = useState(false);
+    const [options, setOptions ] = useState(navBarOptions);
 
     return <div className="navbar">            
         <ul>
-            { navBarOptions.map(option => {
+            { options.map(option => {
                 if (option.dropdownOptions && option.dropdownOptions.length > 0){
-                    return (
-                        <div>
-                            <button onClick={toggleDropDown} className={setActiveAndAditionalClasses(option, "dropdown-btn")}> 
-                                { option.value }
-                                <i className="fa fa-caret-down"></i>
-                            </button>                
-                            <div className="dropdown-container" style={isActive ? {display : "block"} : {display : "none"}}>
-                                <li>  
-                                    { 
-                                        option.dropdownOptions.map(dropdownItem => {
-                                            return <Dropdown dropdownOption = {dropdownItem}></Dropdown>
-                                        })
-                                    }
-                                </li>
-                            </div>
-                        </div>
-                    );
+                    return <DropdownOption option={option}></DropdownOption>
                 }
-                
-                return  <li><a className={setActiveAndAditionalClasses(option)} href={`#${option.redirectEndpoint}`}>{option.value}</a></li>;
+                    return  <Option active={option.active} option={option}></Option>;
                })
             }            
         </ul>
     </div>;
-}
-
-function setActiveAndAditionalClasses(option, aditionalClasses){
-    if (aditionalClasses) return `${aditionalClasses} ${option.active ? "active" : ""}`;
-    return `${option.active ? "active" : ""}`;
 }
 
 export default NavLeftBar;
