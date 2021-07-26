@@ -5,7 +5,6 @@ import Options from '../option/option';
 import './dropdownOption.css';
 
 function DropdownOption(props){
-
     const [option, setOption ] = useState(props.option);
     const [isActive, setActive ] = useState(false);
 
@@ -23,7 +22,7 @@ function DropdownOption(props){
                 <li>  
                     { 
                         option.dropdownOptions.map(dropdownItem => {
-                            return <Options key={dropdownItem.value} option = {dropdownItem}></Options>
+                            return <Options key={dropdownItem.id} active={option.active} option = {dropdownItem}></Options>
                         })
                     }
                 </li>

@@ -1,49 +1,26 @@
 import { useState } from 'react';
 import Option from './option/option';
 import DropdownOption from './dropdownOption/dropdownOption';
-
+import { NavBarService } from './navBarService';
 import './navbar.css'
 
 function NavLeftBar(){
-    const navBarOptions = [
-        { 
-            active : true,
-            value : "Report",
-            redirectEndpoint : "Report"
-        },
-        { 
-            active : false,
-            value : "Tasks",
-            redirectEndpoint : "Tasks",
-            dropdownOptions: [
-                {
-                    active : false,
-                     value : "Task",
-                    redirectEndpoint : "Task"
-                },
-                {
-                    active : false,
-                     value : "Calender",
-                    redirectEndpoint : "Calender"
-                }
-            ]
-        },        
-        { 
-            active : false,
-            value : "Configuration",
-            redirectEndpoint : "Configuration"
-        }
-    ];
     
+    let navBarOptions = NavBarService.getNavBarOptions();
+
     const [options, setOptions ] = useState(navBarOptions);
+
+    const subscritionNavBarService = NavBarService.onChanges().subscribe(()=>{
+        setOptions(NavBarService.getNavBarOptions());
+    });
 
     return <div className="navbar">            
         <ul>
             { options.map(option => {
                 if (option.dropdownOptions && option.dropdownOptions.length > 0){
-                    return <DropdownOption key={option.value} option={option}></DropdownOption>
+                    return <DropdownOption key={option.id} option={option}></DropdownOption>
                 }
-                    return  <Option key={option.value} active={option.active} option={option}></Option>;
+                    return  <Option key={option.id} active={option.active} option={option}></Option>;
                })
             }            
         </ul>
