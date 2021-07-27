@@ -5,7 +5,7 @@ const childKey = "dropdownOptions";
 const idKey = "id";
 const navBarOptions = [
     { 
-        active : true,
+        active : false,
         id : "Report",
         value : "Report",
         redirectEndpoint : "Report"
@@ -69,5 +69,5 @@ function clearAllOptions(list){
 export const NavBarService = {
     setNewActive: (id) => { setActiveOption(id); subject.next(); },
     onChanges: () => subject.asObservable(),
-    getNavBarOptions: () => navBarOptions,
+    getNavBarOptions: () => [...navBarOptions]
 };

@@ -2,7 +2,6 @@ import Classes from '../../../shared/utils/classes';
 import { NavBarService } from '../navBarService';
 
 function Option(props){
-    console.log(props);
     function optionClicked(){   
         NavBarService.setNewActive(props.option.id);
     }

@@ -22,7 +22,7 @@ function DropdownOption(props){
                 <li>  
                     { 
                         option.dropdownOptions.map(dropdownItem => {
-                            return <Options key={dropdownItem.id} active={option.active} option = {dropdownItem}></Options>
+                            return <Options key={dropdownItem.id} active={dropdownItem.active} option = {dropdownItem}></Options>
                         })
                     }
                 </li>
