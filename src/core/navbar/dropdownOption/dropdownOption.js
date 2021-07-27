@@ -17,16 +17,18 @@ function DropdownOption(props){
             <button onClick={toggleDropDown} className={Classes.setActiveAndAditionalClasses(option, "dropdown-btn")}> 
                 { option.value }
                 <i className="fa fa-caret-down"></i>
-            </button>                
-            <div className="dropdown-container" style={isActive ? {display : "block"} : {display : "none"}}>
-                <li>  
-                    { 
-                        option.dropdownOptions.map(dropdownItem => {
-                            return <Options key={dropdownItem.id} active={dropdownItem.active} option = {dropdownItem}></Options>
-                        })
-                    }
-                </li>
-            </div>
+            </button>
+            { isActive &&
+                <div className="dropdown-container">
+                    <li>  
+                        { 
+                            option.dropdownOptions.map(dropdownItem => {
+                                return <Options key={dropdownItem.id} active={dropdownItem.active} option = {dropdownItem}></Options>
+                            })
+                        }
+                    </li>
+                </div>
+            }                
         </div>
     );
 } 

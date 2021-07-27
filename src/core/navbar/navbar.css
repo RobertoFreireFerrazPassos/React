@@ -39,7 +39,6 @@
 
 
 .dropdown-container {
-    display: none;
     padding-left: 8px;
-    font-size:x-small;
+    font-size: small;
   }
