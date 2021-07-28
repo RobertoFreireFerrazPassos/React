@@ -8,7 +8,8 @@ const navBarOptions = [
         active : false,
         id : "Report",
         value : "Report",
-        redirectEndpoint : "Report"
+        redirectEndpoint : "Report",
+        componentIdentifier : "REPORT"
     },
     { 
         active : false,
@@ -20,13 +21,15 @@ const navBarOptions = [
                 active : false,
                 value : "Task",
                 id : "Tasks.Task",
-                redirectEndpoint : "Task"
+                redirectEndpoint : "Task",                
+                componentIdentifier : "TASK"
             },
             {
                 active : false,
                 value : "Calender",
                 id : "Tasks.Calender",
-                redirectEndpoint : "Calender"
+                redirectEndpoint : "Calender",                
+                componentIdentifier : "CALENDER"
             }
         ]
     },        
@@ -34,7 +37,8 @@ const navBarOptions = [
         active : false,
         value : "Configuration",
         id : "Configuration",
-        redirectEndpoint : "Configuration"
+        redirectEndpoint : "Configuration",                
+        componentIdentifier : "CONFIGURATION"
     }
 ];
 

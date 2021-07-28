@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import BodyBar from './core/body/body';
 import NavLeftBar from './core/navbar/navbar';
 import { ModuleSelectionService } from './modules/moduleSelectionService';
@@ -5,17 +7,17 @@ import { ModuleSelectionService } from './modules/moduleSelectionService';
 import './App.css';
 
 function App() {
-  let moduleContent = ModuleSelectionService.getModuleSelection();
-
+  const [moduleContent, setModuleContent ] = useState(ModuleSelectionService.getModuleSelection());
+  
   const subscritionModuleSelectionService = ModuleSelectionService.onChanges().subscribe(()=>{
-    moduleContent = ModuleSelectionService.getModuleSelection();
+    setModuleContent(ModuleSelectionService.getModuleSelection());
   });
 
   return (
     <div className="App">      
       <NavLeftBar></NavLeftBar>
       <BodyBar>
-        {moduleContent()}
+        {moduleContent}
       </BodyBar>
     </div>
   );

@@ -1,12 +1,17 @@
 import { Subject } from 'rxjs';
-import Tasks from './Tasks/task';
+
 import Report from './Report/report';
+import Task from './Tasks/Task/task';
+import Calender from './Tasks/Calender/calender';
+import Configuration from './Configuration/configuration';
 
 const subject = new Subject();
 
 let modules = {
     "REPORT" : Report,
-    "TASKS" : Tasks
+    "TASK" : Task,
+    "CALENDER" : Calender,
+    "CONFIGURATION" : Configuration
 }
 
 let moduleSelected = Report;

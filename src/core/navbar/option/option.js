@@ -1,8 +1,10 @@
 import Classes from '../../../shared/utils/classes';
 import { NavBarService } from '../navBarService';
+import { ModuleSelectionService } from '../../../modules/moduleSelectionService';
 
 function Option(props){
     function optionClicked(){   
+        ModuleSelectionService.selectModule(props.option.componentIdentifier);        
         NavBarService.setNewActive(props.option.id);
     }
     return (

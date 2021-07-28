@@ -1,7 +1,9 @@
 import { useState } from 'react';
+
 import Option from './option/option';
 import DropdownOption from './dropdownOption/dropdownOption';
 import { NavBarService } from './navBarService';
+
 import './navbar.css'
 
 function NavLeftBar(){
