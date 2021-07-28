@@ -1,6 +1,6 @@
 import BodyBar from './core/body/body';
 import NavLeftBar from './core/navbar/navbar';
-import { ModuleSelectionService } from './core/services/moduleSelection/moduleSelectionService';
+import { ModuleSelectionService } from './modules/moduleSelectionService';
 
 import './App.css';
 

@@ -1,6 +1,6 @@
 import { Subject } from 'rxjs';
-import Tasks from '../../../modules/Tasks/task';
-import Report from '../../../modules/Report/report';
+import Tasks from './Tasks/task';
+import Report from './Report/report';
 
 const subject = new Subject();
 
