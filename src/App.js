@@ -9,8 +9,8 @@ import './App.css';
 function App() {
   const [moduleContent, setModuleContent ] = useState(ModuleSelectionService.getModuleSelection());
   
-  const subscritionModuleSelectionService = ModuleSelectionService.onChanges().subscribe(()=>{
-    setModuleContent(ModuleSelectionService.getModuleSelection());
+  const subscritionModuleSelectionService = ModuleSelectionService.onChanges().subscribe((moduleSelected)=>{
+    setModuleContent(moduleSelected);
   });
 
   return (

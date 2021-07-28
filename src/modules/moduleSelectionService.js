@@ -21,7 +21,7 @@ function selectModule(identifier){
 }
 
 export const ModuleSelectionService = {
-    selectModule: (identifier) => { selectModule(identifier); subject.next(); },
+    selectModule: (identifier) => { selectModule(identifier); subject.next(moduleSelected); },
     onChanges: () => subject.asObservable(),
     getModuleSelection: () => moduleSelected
 };

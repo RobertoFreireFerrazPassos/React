@@ -9,8 +9,8 @@ import './navbar.css'
 function NavLeftBar(){
     const [options, setOptions ] = useState(NavBarService.getNavBarOptions());
 
-    const subscritionNavBarService = NavBarService.onChanges().subscribe(()=>{
-        setOptions(NavBarService.getNavBarOptions());
+    const subscritionNavBarService = NavBarService.onChanges().subscribe((navBarOptions)=>{
+        setOptions(navBarOptions);
     });
 
     return <div className="navbar">            

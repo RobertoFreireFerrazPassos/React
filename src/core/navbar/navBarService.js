@@ -70,8 +70,10 @@ function clearAllOptions(list){
     });
 }
 
+const getNavBarOptions = () => [...navBarOptions];
+
 export const NavBarService = {
-    setNewActive: (id) => { setActiveOption(id); subject.next(); },
+    setNewActive: (id) => { setActiveOption(id); subject.next(getNavBarOptions()); },
     onChanges: () => subject.asObservable(),
-    getNavBarOptions: () => [...navBarOptions]
+    getNavBarOptions: () => getNavBarOptions()
 };
