@@ -5,10 +5,7 @@ import { NavBarService } from './navBarService';
 import './navbar.css'
 
 function NavLeftBar(){
-    
-    let navBarOptions = NavBarService.getNavBarOptions();
-
-    const [options, setOptions ] = useState(navBarOptions);
+    const [options, setOptions ] = useState(NavBarService.getNavBarOptions());
 
     const subscritionNavBarService = NavBarService.onChanges().subscribe(()=>{
         setOptions(NavBarService.getNavBarOptions());
