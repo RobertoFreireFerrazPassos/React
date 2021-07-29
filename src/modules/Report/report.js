@@ -40,8 +40,7 @@ function Report(){
                 }
             }
         });
-    console.log("TEste");
-    }, [0]);
+    }, []);
 
     return (        
         <div>
