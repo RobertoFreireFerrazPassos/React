@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import Chart from './libraries/chart';
 
@@ -43,10 +43,10 @@ function Report(){
     }, []);
 
     return (        
-        <div>
+        <React.Fragment>
             <h2>Report</h2>
             <canvas id="myChart" width="400" height="400"></canvas>
-        </div>
+        </React.Fragment>
     );
 }
 
