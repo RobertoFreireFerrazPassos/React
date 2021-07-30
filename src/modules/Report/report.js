@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 import Chart from './libraries/chart';
+import Card from '../../shared/components/card/card';
 
 function Report(){
 
@@ -45,7 +46,9 @@ function Report(){
     return (        
         <React.Fragment>
             <h2>Report</h2>
-            <canvas id="myChart" width="400" height="400"></canvas>
+            <Card>
+                <canvas id="myChart" width="400" height="400"></canvas>
+            </Card>
         </React.Fragment>
     );
 }

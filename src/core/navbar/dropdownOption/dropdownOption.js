@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import Classes from '../../../shared/utils/classes';
 import Options from '../option/option';
-import Wrapper from '../../../shared/utils/wrapper';
+import Wrapper from '../../../shared/components/wrapper/wrapper';
 
 import './dropdownOption.css';
 

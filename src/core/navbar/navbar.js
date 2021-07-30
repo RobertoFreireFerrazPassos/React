@@ -4,7 +4,7 @@ import Option from './option/option';
 import DropdownOption from './dropdownOption/dropdownOption';
 import { NavBarService } from './navBarService';
 
-import './navbar.css'
+import './navbar.css';
 
 function NavLeftBar(){
     const [options, setOptions ] = useState(NavBarService.getNavBarOptions());
