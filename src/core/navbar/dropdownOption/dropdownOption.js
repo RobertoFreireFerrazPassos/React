@@ -1,6 +1,8 @@
 import { useState } from 'react';
+
 import Classes from '../../../shared/utils/classes';
 import Options from '../option/option';
+import Wrapper from '../../../shared/utils/wrapper';
 
 import './dropdownOption.css';
 
@@ -13,7 +15,7 @@ function DropdownOption(props){
     }
 
     return (
-        <div>
+        <Wrapper>
             <button onClick={toggleDropDown} className={Classes.setActiveAndAditionalClasses(option, "dropdown-btn")}> 
                 { option.value }
                 <i className="fa fa-caret-down"></i>
@@ -29,7 +31,7 @@ function DropdownOption(props){
                     </li>
                 </div>
             }                
-        </div>
+        </Wrapper>
     );
 } 
 
