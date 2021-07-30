@@ -14,22 +14,22 @@ function DropdownOption(props){
         setActive(!isActive);
     }
 
+    let classArrow = isActive ? "fa fa-caret-up" : "fa fa-caret-down"; 
+
     return (
         <Wrapper>
             <button onClick={toggleDropDown} className={Classes.setActiveAndAditionalClasses(option, "dropdown-btn")}> 
                 { option.value }
-                <i className="fa fa-caret-down"></i>
+                <i className={classArrow}></i>
             </button>
             { isActive &&
-                <div className="dropdown-container">
-                    <li>  
-                        { 
-                            option.dropdownOptions.map(dropdownItem => {
-                                return <Options key={dropdownItem.id} active={dropdownItem.active} option = {dropdownItem}></Options>
-                            })
-                        }
-                    </li>
-                </div>
+                <li className="dropdown-container">
+                    { 
+                        option.dropdownOptions.map(dropdownItem => {
+                            return <Options key={dropdownItem.id} active={dropdownItem.active} option = {dropdownItem}></Options>
+                        })
+                    }
+                </li>
             }                
         </Wrapper>
     );

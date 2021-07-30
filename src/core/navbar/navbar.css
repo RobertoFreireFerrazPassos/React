@@ -11,11 +11,6 @@
   color: #000;  
 }
 
-.navbar .fa-caret-down {
-  float: right;
-  padding-right: 8px;
-}
-
 .navbar ul {
   list-style-type: none;
   margin: 0;
@@ -35,4 +30,12 @@
 .navbar a:hover:not(.active) {
   background-color: rgb(90, 162, 96);
   color: white;
+}
+
+.navbar ul {
+  border-right: 2px solid #ccc!important;
+}
+
+.navbar>ul>a {
+  border-bottom: 1px solid #ccc!important;
 }

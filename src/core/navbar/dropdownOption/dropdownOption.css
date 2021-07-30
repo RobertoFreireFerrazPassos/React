@@ -1,4 +1,15 @@
-  .dropdown-container {
-    padding-left: 8px;
-    font-size: small;
-  }
+.dropdown-container {
+  padding-left: 8px;
+  font-size: small;
+}
+  
+.dropdown-btn {
+  border-bottom: 1px solid #ccc!important;
+}
+
+
+
+.fa-caret-down , .fa-caret-up {
+  float: right;
+  padding-right: 8px;
+}
