@@ -12,7 +12,7 @@ import Configuration from './modules/Configuration/configuration';
 import './App.css';
 
 function App() {
-  const [moduleContent, setModuleContent ] = useState("REPORT");
+  const [moduleContent, setModuleContent ] = useState();
 
   ModuleSelectionService.onChanges().subscribe((moduleSelected)=>{
     setModuleContent(moduleSelected);
