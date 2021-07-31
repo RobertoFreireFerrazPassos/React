@@ -41,8 +41,9 @@ function Report(){
                 }
             }
         });
+        return () => myChart.destroy()
     }, []);
-
+    
     return (        
         <React.Fragment>
             <h2>Report</h2>
