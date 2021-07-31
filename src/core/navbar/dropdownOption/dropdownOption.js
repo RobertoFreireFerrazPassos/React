@@ -1,4 +1,4 @@
-import { Component, useState } from 'react';
+import { Component } from 'react';
 
 import Classes from '../../../shared/utils/classes';
 import Options from '../option/option';
