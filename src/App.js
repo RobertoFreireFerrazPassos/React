@@ -18,12 +18,16 @@ class App extends Component {
       moduleContent : {}
     };
 
-    ModuleSelectionService.onChanges().subscribe((moduleSelected)=>{
+    this.subscritionModuleSelectionService = ModuleSelectionService.onChanges().subscribe((moduleSelected)=>{
       this.setState({
           moduleContent : moduleSelected
         } 
       );
     });
+  }
+
+  componentWillUnmount(){
+    this.subscritionModuleSelectionService.unsubscribe();
   }
 
   render() {

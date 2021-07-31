@@ -13,11 +13,15 @@ class NavLeftBar extends Component {
             options : NavBarService.getNavBarOptions()
         }
 
-        const subscritionNavBarService = NavBarService.onChanges().subscribe((navBarOptions)=>{
+        this.subscritionNavBarService = NavBarService.onChanges().subscribe((navBarOptions)=>{
             this.setState({
                 options : navBarOptions
             });
         });
+    }
+
+    componentWillUnmount(){
+        this.subscritionNavBarService.unsubscribe();
     }
 
     render(){
