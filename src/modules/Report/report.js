@@ -1,13 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { Component } from 'react';
 
 import Chart from './libraries/chart';
 import Card from '../../shared/components/card/card';
 
-function Report(){
-
-    useEffect(() => {
+class Report extends Component {
+    constructor(){
+        super();
+        this.myChart = null; 
+    }
+    
+    componentDidMount(){
         var ctx = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx, {
+        this.myChart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -41,17 +45,22 @@ function Report(){
                 }
             }
         });
-        return () => myChart.destroy()
-    }, []);
+    }
+
+    componentWillUnmount(){
+        this.myChart.destroy();
+    }
     
-    return (        
-        <React.Fragment>
-            <h2>Report</h2>
-            <Card>
-                <canvas id="myChart" width="400" height="400"></canvas>
-            </Card>
-        </React.Fragment>
-    );
+    render(){
+        return (        
+            <React.Fragment>
+                <h2>Report</h2>
+                <Card>
+                    <canvas id="myChart" width="400" height="400"></canvas>
+                </Card>
+            </React.Fragment>
+        );
+    }
 }
 
 export default Report;
