@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Component } from 'react';
 
 import BodyBar from './core/body/body';
 import NavLeftBar from './core/navbar/navbar';
@@ -11,24 +11,34 @@ import Configuration from './modules/Configuration/configuration';
 
 import './App.css';
 
-function App() {
-  const [moduleContent, setModuleContent ] = useState();
+class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      moduleContent : {}
+    };
 
-  ModuleSelectionService.onChanges().subscribe((moduleSelected)=>{
-    setModuleContent(moduleSelected);
-  });
+    ModuleSelectionService.onChanges().subscribe((moduleSelected)=>{
+      this.setState({
+          moduleContent : moduleSelected
+        } 
+      );
+    });
+  }
 
-  return (
-    <div className="App">      
-      <NavLeftBar></NavLeftBar>
-      <BodyBar>
-        { moduleContent === "REPORT" && <Report></Report>}
-        { moduleContent === "TASK" && <Task></Task>}
-        { moduleContent === "CALENDER" && <Calender></Calender>}
-        { moduleContent === "CONFIGURATION" && <Configuration></Configuration>}
-      </BodyBar>
-    </div>
-  );
+  render() {
+    return (
+      <div className="App">      
+        <NavLeftBar></NavLeftBar>
+        <BodyBar>
+          { this.state.moduleContent === "REPORT" && <Report></Report>}
+          { this.state.moduleContent === "TASK" && <Task></Task>}
+          { this.state.moduleContent === "CALENDER" && <Calender></Calender>}
+          { this.state.moduleContent === "CONFIGURATION" && <Configuration></Configuration>}
+        </BodyBar>
+      </div>
+    );
+  }
 }
 
 export default App;
